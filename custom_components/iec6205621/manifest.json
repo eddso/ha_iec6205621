@@ -1,0 +1,11 @@
+{
+    "domain": "iec6205621",
+    "name": "IEC 62056-21",
+    "config_flow": true,
+    "documentation": "https://www.home-assistant.io/integrations/iec6205621",
+    "requirements": ["pyserial==3.5"],
+    "codeowners": ["@eddso"],
+    "iot_class": "local_polling",
+    "version": "0.0.1",
+    "loggers": ["iec6205621"]
+}
