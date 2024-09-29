@@ -8,10 +8,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import (
-    CONF_DEVICE,
-    ENERGY_KILO_WATT_HOUR,
-)
+from homeassistant.const import CONF_DEVICE, UnitOfEnergy
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -48,7 +45,7 @@ class OBISMeter(CoordinatorEntity, SensorEntity):
         self._device = device
         self._attr_unique_id = f"{DOMAIN}_{device}_{sensor}"
         self._attr_name = coordinator.data.sensors[sensor]['name']
-        self._attr_native_unit_of_measurement = ENERGY_KILO_WATT_HOUR
+        self._attr_native_unit_of_measurement = UnitOfEnergy.KILO_WATT_HOUR
         self._attr_device_class = SensorDeviceClass.ENERGY
         self._attr_state_class = SensorStateClass.TOTAL_INCREASING
         self._attr_device_info = DeviceInfo(
